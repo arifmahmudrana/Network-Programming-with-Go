@@ -71,7 +71,7 @@ Vagrant.configure("2") do |config|
     sudo apt-get install -y git
     curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
     sudo apt-get install -y nodejs
-    sudo aptitude install -y calibre
+    sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
     cd /vagrant
     make install
     make build

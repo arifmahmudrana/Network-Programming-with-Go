@@ -50,12 +50,12 @@ These are required at the following levels of the OSI stack:
 * Connection confidentiality
     *     encryption
     *     routing control 
-* Connectionless confidelity
+* Connectionless confidentiality
     *     encryption
     *     routing control 
-* Selective field confidelity
+* Selective field confidentiality
     *     encryption 
-* Traffic flow confidelity
+* Traffic flow confidentiality
     *     encryption
     *     traffic padding
     *     routing control 

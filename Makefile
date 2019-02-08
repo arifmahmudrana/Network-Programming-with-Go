@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: all install prepare build watch publish pdf epub mobi clean
+.PHONY: all install prepare build watch publish pdf epub mobi clean dockbuild dockrun
 
 all: install build
 
@@ -39,4 +39,18 @@ publish: build pdf epub mobi
 clean:
 	rm -rf _book
 	rm -rf node_modules
+	rm -rf tmp*
 
+# build docker image
+dockbuild:
+	docker build -t gitbook .
+
+# use x11 for publishing pdf, epub and mobi ebooks, tested on ubuntu 16.04. \
+`make dockrun` will create a container, build the gitbook and attach a terminal, \
+to run other commands such as `make watch`, `make publish`.
+dockrun:
+	docker run -ti --rm -e DISPLAY=${DISPLAY} \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-v ${HOME}/.Xauthority:/root/.Xauthority \
+	-v ${shell pwd}:/app/gitbook \
+	--net=host gitbook /bin/bash -c "make build && bash"

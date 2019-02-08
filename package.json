@@ -10,7 +10,7 @@
   "scripts": {
     "gitbook:prepare": "gitbook install",
     "gitbook:watch": "npm run gitbook:prepare && gitbook serve",
-    "gitbook:build": "npm run gitbook:prepare && rm -rf _book && gitbook build",
+    "gitbook:build": "npm run gitbook:prepare && gitbook build",
     "gitbook:pdf": "gitbook pdf . ./_book/network-programming-with-go.pdf",
     "gitbook:epub": "gitbook epub . ./_book/network-programming-with-go.epub",
     "gitbook:mobi": "gitbook mobi . ./_book/network-programming-with-go.mobi"

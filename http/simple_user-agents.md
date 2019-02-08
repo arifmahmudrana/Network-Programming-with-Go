@@ -146,7 +146,7 @@ func acceptableCharset(contentTypes []string) bool {
 	// each type is like [text/html; charset=UTF-8]
 	// we want the UTF-8 only
 	for _, cType := range contentTypes {
-		if strings.Index(cType, "UTF-8") != -1 {
+		if strings.Index(strings.ToUpper(cType), "UTF-8") != -1 {
 			return true
 		}
 	}

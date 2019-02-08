@@ -41,7 +41,7 @@ func Echo(ws *websocket.Conn) {
 	fmt.Println("Echoing")
 
 	for n := 0; n < 10; n++ {
-		msg := "Hello  " + string(n+48)
+		msg := fmt.Sprintf("Hello %d", n)
 		fmt.Println("Sending to client: " + msg)
 		err := websocket.Message.Send(ws, msg)
 		if err != nil {
@@ -112,7 +112,7 @@ func main() {
 		// return the msg
 		err = websocket.Message.Send(conn, msg)
 		if err != nil {
-			fmt.Println("Coduln't return msg")
+			fmt.Println("Couldn't return msg")
 			break
 		}
 	}
